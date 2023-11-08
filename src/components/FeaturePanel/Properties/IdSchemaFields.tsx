@@ -135,7 +135,7 @@ const OtherTagsSection = () => {
   );
 };
 
-export const IdSchemeFields = () => {
+export const IdSchemaFields = () => {
   const { feature } = useFeatureContext();
   const { schema } = feature;
   const { keysTodo, featuredTags, matchedFields, tagsWithFields } = schema;

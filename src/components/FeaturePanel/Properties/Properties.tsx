@@ -1,6 +1,6 @@
 import React from 'react';
 import { FeaturedTags } from '../FeaturedTags';
-import { IdSchemeFields } from './IdSchemeFields';
+import { IdSchemaFields } from './IdSchemaFields';
 import { t } from '../../../services/intl';
 import { TagsTableInner } from './TagsTableInner';
 import { useFeatureContext } from '../../utils/FeatureContext';
@@ -16,7 +16,7 @@ export const Properties = ({ showTags }) => {
       {!showTags && (
         <>
           <FeaturedTags featuredTags={feature.schema?.featuredTags} />
-          <IdSchemeFields />
+          <IdSchemaFields />
         </>
       )}
       {showTags && (
