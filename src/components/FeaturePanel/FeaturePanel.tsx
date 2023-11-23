@@ -21,6 +21,7 @@ import { getLabel } from '../../helpers/featureLabel';
 import { ImageSection } from './ImageSection/ImageSection';
 import { PublicTransport } from './PublicTransport/PublicTransport';
 import { Properties } from './Properties/Properties';
+import { UploadDialog } from './UploadDialog/UploadDialog';
 
 export const FeaturePanel = () => {
   const { feature } = useFeatureContext();
@@ -50,6 +51,8 @@ export const FeaturePanel = () => {
           {!skeleton && (
             <>
               <OsmError />
+
+              <UploadDialog />
 
               <Properties
                 showTags={showTagsTable}
