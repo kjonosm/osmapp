@@ -1,9 +1,8 @@
-import Grid from '@material-ui/core/Grid';
-import Typography from '@material-ui/core/Typography';
 import React from 'react';
 import styled from 'styled-components';
-import FolderIcon from '@material-ui/icons/Folder';
-import SearchIcon from '@material-ui/icons/Search';
+import FolderIcon from '@mui/icons-material/Folder';
+import SearchIcon from '@mui/icons-material/Search';
+import { Grid, Typography } from '@mui/material';
 import { useMapStateContext } from '../utils/MapStateContext';
 import Maki from '../utils/Maki';
 import { highlightText } from './highlightText';

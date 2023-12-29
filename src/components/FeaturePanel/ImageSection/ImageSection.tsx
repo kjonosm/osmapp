@@ -1,7 +1,8 @@
-import IconButton from '@material-ui/core/IconButton';
-import Share from '@material-ui/icons/Share';
-import StarBorder from '@material-ui/icons/StarBorder';
-import Directions from '@material-ui/icons/Directions';
+import { IconButton } from '@mui/material';
+import Share from '@mui/icons-material/Share';
+import StarBorder from '@mui/icons-material/StarBorder';
+import Directions from '@mui/icons-material/Directions';
+
 import React from 'react';
 import styled from 'styled-components';
 import { useFeatureContext } from '../../utils/FeatureContext';
