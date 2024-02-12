@@ -10,6 +10,7 @@ import { MapFooter } from './MapFooter/MapFooter';
 import { SHOW_PROTOTYPE_UI } from '../../config';
 import { LayerSwitcherButton } from '../LayerSwitcher/LayerSwitcherButton';
 import { MaptilerLogo } from './MapFooter/MaptilerLogo';
+import { useMapStateContext } from '../utils/MapStateContext';
 
 const BrowserMap = dynamic(() => import('./BrowserMap'), {
   ssr: false,
@@ -53,12 +54,12 @@ const NoscriptMessage = () => (
 
 const Map = () => {
   const [mapLoaded, setLoaded, setNotLoaded] = useBoolState(true);
-
+  const { showClimbing } = useMapStateContext();
   useEffect(setNotLoaded, []);
 
   return (
     <>
-      <BrowserMap onMapLoaded={setLoaded} />
+      <BrowserMap onMapLoaded={setLoaded} showClimbing={showClimbing} />
       {!mapLoaded && <Spinner color="secondary" />}
       <NoscriptMessage />
       <LayerSwitcher />

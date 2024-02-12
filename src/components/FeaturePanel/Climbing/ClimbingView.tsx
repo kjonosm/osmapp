@@ -247,7 +247,7 @@ export const ClimbingView = () => {
 
   useEffect(() => {
     setIsPhotoLoaded(false);
-    const url = getCommonsImageUrl(`File:${photoPath}`, 1500);
+    const url = getCommonsImageUrl(`File:${photoPath}`, 3000);
     setImageUrl(url);
   }, [photoPath]);
 

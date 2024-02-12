@@ -4,7 +4,11 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import React from 'react';
 import styled from 'styled-components';
-import { ListItemSecondaryAction } from '@material-ui/core';
+import {
+  Checkbox,
+  FormControlLabel,
+  ListItemSecondaryAction,
+} from '@material-ui/core';
 import { dotToOptionalBr } from '../helpers';
 import {
   AddUserLayerButton,
@@ -58,10 +62,10 @@ const getAllLayers = (userLayers: Layer[], view: View): Layer[] => {
 };
 
 export const LayerSwitcherContent = () => {
-  const { view, activeLayers, setActiveLayers } = useMapStateContext();
+  const { view, activeLayers, setActiveLayers, setShowClimbing, showClimbing } =
+    useMapStateContext();
   const [userLayers, setUserLayers] = usePersistedState('userLayers', []);
   const layers = getAllLayers(userLayers, view);
-
   return (
     <>
       <LayersHeader headingId="layerSwitcher-heading" />
@@ -95,6 +99,17 @@ export const LayerSwitcherContent = () => {
             </ListItem>
           );
         })}
+        <ListItem>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={showClimbing}
+                onChange={(e) => setShowClimbing(e.target.checked)}
+              />
+            }
+            label="Show climbing data"
+          />
+        </ListItem>
       </StyledList>
       <AddUserLayerButton setUserLayers={setUserLayers} />
     </>

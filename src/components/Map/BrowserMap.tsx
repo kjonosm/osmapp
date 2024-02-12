@@ -43,7 +43,7 @@ const fetchCrags = async () => {
   return { type: 'FeatureCollection', features };
 };
 
-const BrowserMap = ({ onMapLoaded }) => {
+const BrowserMap = ({ onMapLoaded, showClimbing }) => {
   if (!isWebglSupported()) {
     onMapLoaded();
     return <NotSupportedMessage />;
@@ -53,9 +53,19 @@ const BrowserMap = ({ onMapLoaded }) => {
   const [map, mapRef] = useInitMap();
   useOnMapClicked(map, setFeature, setPreview, useMobileMode());
   useOnMapLoaded(map, onMapLoaded);
-  useOnMapLoaded(map, async () => {
-    map.getSource('overpass')?.setData(await fetchCrags());
-  });
+
+  console.log('_____showClimbing', showClimbing);
+  useOnMapLoaded(
+    map,
+    async () => {
+      console.log('_____showClimbing2', showClimbing);
+      if (showClimbing) {
+        map.getSource('overpass')?.setData(await fetchCrags());
+      }
+    },
+    showClimbing,
+  );
+
   useFeatureMarker(map);
 
   const { viewForMap, setViewFromMap, setBbox, activeLayers } =

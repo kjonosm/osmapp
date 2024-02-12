@@ -12,6 +12,8 @@ export interface Layer {
   Icon?: React.FC<any>;
   attribution?: string[]; // missing in spacer TODO refactor ugly
   maxzoom?: number;
+  showClimbing?: boolean;
+  setShowClimbing?: (showClimbing: boolean) => void;
 }
 
 // // [b.getWest(), b.getNorth(), b.getEast(), b.getSouth()]
@@ -39,6 +41,7 @@ export const MapStateProvider = ({ children, initialMapView }) => {
   const [bbox, setBbox] = useState();
   const [view, setView] = useState(initialMapView);
   const [viewForMap, setViewForMap] = useState(initialMapView);
+  const [showClimbing, setShowClimbing] = useState(false);
 
   const setBothViews = useCallback((newView) => {
     setView(newView);
@@ -71,6 +74,8 @@ export const MapStateProvider = ({ children, initialMapView }) => {
     activeLayers,
     setActiveLayers,
     showToast,
+    showClimbing,
+    setShowClimbing,
   };
 
   return (

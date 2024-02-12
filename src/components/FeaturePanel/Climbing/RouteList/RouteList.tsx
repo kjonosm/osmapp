@@ -29,6 +29,7 @@ export const RouteList = ({ isEditable }: { isEditable?: boolean }) => {
     gradeTable,
     setGradeTable,
     showDebugMenu,
+    setRoutes,
   } = useClimbingContext();
 
   React.useEffect(() => {
@@ -118,7 +119,7 @@ export const RouteList = ({ isEditable }: { isEditable?: boolean }) => {
   };
 
   const mockRoutes = () => {
-    // setRoutes();
+    setRoutes([]);
   };
 
   return (
